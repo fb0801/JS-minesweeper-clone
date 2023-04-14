@@ -40,3 +40,19 @@ body{
     user-select: none;
 }
 
+.board > [data-status='hidden'] {
+    background-color: #BBB;
+    cursor: pointer;
+}
+
+.board > [data-status='mine']{
+    background-color: red;
+}
+
+.board > [data-status='number'] {
+    background-color: none;
+}
+
+.board > [data-status = 'marked'] {
+    background-color: yellow;
+}
