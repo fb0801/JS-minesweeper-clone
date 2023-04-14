@@ -20,7 +20,7 @@ export function createBoard(boardSize, numberOfMines){
                 element,
                 x,
                 y, 
-                mine: minPosition.some(),
+                mine: minPosition.some(positionMatch.bind(null, {x,y})),
                 get status(){
                     return this.element.dataset.status
                 },
