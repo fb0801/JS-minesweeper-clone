@@ -2,7 +2,7 @@
 
 //populate board
 
-import {TILE_STATUSES, createBoard, markTile, revealTile} from './minesweeper.js'
+import {TILE_STATUSES, createBoard, markTile, revealTile, checkWin, checkLose} from './minesweeper.js'
 
 const BOARD_SIZE = 10
 const NUMBER_OF_MINES = 10
@@ -16,7 +16,8 @@ board.forech(row => {
     row.forech(tile => {
         boardElement.append(tile.element)
         tile.element.addEventListner('click', () => {
-            revealTile(tile)
+            revealTile(board, tile)
+            checkGameEnd()
         })
         tile.element.addEventListner('contextmenu', e => {
             e.preventDefault()
@@ -36,4 +37,9 @@ function listMinesLeft(){
 
    minesLeftText.textContent = NUMBER_OF_MINES - markedTitlesCount
 
+}
+
+function checkGameEnd(){
+    const win = checkWin(board)
+    const lose = checkLose(board)
 }
