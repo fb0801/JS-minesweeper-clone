@@ -35,6 +35,20 @@ export function createBoard(boardSize, numberOfMines){
     return board
 }
 
+export function markTile (tile) {
+    //check if tile eligble
+    if(tile.status !== TILE_STATUSES.HIDDEN && 
+        tile.status !=TILE_STATUSES.MARKED){
+            return 
+        }
+        
+        if (tile.status === TILE_STATUSES.MARKED){
+            tile.status = TILE_STATUSES.HIDDEN
+        }else  {
+            tile.status = TILE_STATUSES.MARKED
+        } 
+}
+
 function getMinePositions(boardSize, numberOfMines){
     const positions = []
     
