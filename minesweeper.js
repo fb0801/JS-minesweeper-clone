@@ -1,6 +1,6 @@
 //logic
 
-const TILE_STATUSES ={
+export const TILE_STATUSES ={
     HIDDEN: 'hidden',
     MINE: 'mine',
     NUMBER: 'number',
@@ -47,6 +47,17 @@ export function markTile (tile) {
         }else  {
             tile.status = TILE_STATUSES.MARKED
         } 
+}
+
+export function revealTile (board, tile) {
+    if (tile.status !== TILE_STATUSES.HIDDEN){
+        return 
+}
+    if (tile.mine){
+        tile.status = TILE_STATUSES.MINE 
+        return
+    }
+    tile.status = TILE_STATUSES.NUMBER //if tile not clicked then assigned a number
 }
 
 function getMinePositions(boardSize, numberOfMines){
