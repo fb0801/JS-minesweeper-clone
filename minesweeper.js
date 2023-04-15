@@ -67,12 +67,21 @@ export function revealTile (board, tile) {
     }
 }
 
-export function checkWin(){
-
+export function checkWin(board){
+    return board.every(row =>{
+        return row.every(tile => {
+            
+        })
+    })
+    
 }
 
-export function checkLose() {
-    
+export function checkLose(board) {
+    return board.some(row => {
+        return row.some(tile => {
+            return tile.status === TILE_STATUSES.MINE
+        })
+    })
 }
 
 function getMinePositions(boardSize, numberOfMines){
