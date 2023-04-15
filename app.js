@@ -16,7 +16,10 @@ board.forech(row => {
     row.forech(tile => {
         boardElement.append(tile.element)
         tile.element.addEventListner('click', () => {
-            
+
+        })
+        tile.element.addEventListner('contextmenu', e => {
+            e.preventDefault()
         })
     })
 })
